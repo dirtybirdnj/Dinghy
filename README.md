@@ -6,10 +6,20 @@ It's an express app with a few endpoints... forked from the sequelize
 
 It's (eventually) going to be a submodule of https://github.com/dirtybirdnj/rasphotod
 
+Features
+
+- [ ] FE - List of albums from sqlite local
+- [ ] FE - Keypress listening page that makes endpoint requests
+- [ ] BE - Create new album
+- [ ] BE - Set album active
+- [ ] BE - Take photo
+- [ ] BE - Write photo to local storage
+- [ ] BE - Upload image to S3
+- [ ] BE - Delete Album (remove all photos)
+
+
 This repository demonstrates the usage of Sequelize within an [Express](https://expressjs.com) application.
 The implemented logic is a simple task tracking tool.
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ## Starting App
 
