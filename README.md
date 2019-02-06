@@ -2,7 +2,7 @@
 
 Dinghy is a small app designed to run on a Raspberry Pi and provide a very simple way to create, manage or select albums to add photos to. It also provides an interface to fire the camera!
 
-It's an express app with a few endpoints... forked from the sequelize 
+It's an express app with a few endpoints... forked from the sequelize / express example repo.
 
 It's (eventually) going to be a submodule of https://github.com/dirtybirdnj/rasphotod
 
