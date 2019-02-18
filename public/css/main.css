@@ -1,0 +1,51 @@
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+
+  background-color: #f5f5f5;
+}
+
+.form-centered {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.actionButtons .btn-primary {
+    color: white;
+}
+
+.eventContainer {
+    width: 100%;
+    height: 100%;
+}
+
+.eventContainer img {
+    height: 90%;
+    margin-top: 10px; 
+    margin-bottom: 10px;
+}
+
+#eventControls{
+    padding-top: 30px;
+    padding-right: 30px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}

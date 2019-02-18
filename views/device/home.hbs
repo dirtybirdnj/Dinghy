@@ -1,0 +1,14 @@
+    <div class="form-centered">
+        <h1 class="h3 mb-3 font-weight-normal">RasphotoD</h1>
+        <div class="actionButtons">
+            {{#if activeEvent}}
+            <button id="btnNewEvent" class="btn btn-lg btn-block btn-outline-primary">New Event</button>
+            <button id="btnResumeEvent" class="btn btn-lg btn-block btn-outline-primary btn-primary">Resume Event</button>
+            {{else}}
+            <button id="btnNewEvent" class="btn btn-lg btn-block btn-outline-primary btn-primary">New Event</button>
+            {{/if}}
+            <button id="btnShutdown" class="btn btn-lg btn-block btn-outline-primary">Shutdown</button>   
+        </div>
+        <div id="output">&nbsp;</div>
+        <div><small>Version 0.1 2/17/2019</small></div>        
+    </div>
