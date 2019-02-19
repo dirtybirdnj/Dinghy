@@ -17,10 +17,7 @@ router.get('/device/home', function(req, res) {
   Event.findOne({
     where: { active : true }
   }).then((event) => {
-
-    console.log(event);
     res.render('device/home', { activeEvent: event });
-
   });
 
 });
