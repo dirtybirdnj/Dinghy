@@ -23,5 +23,7 @@ COPY . ./
 # Enable udevd so that plugged dynamic hardware devices show up in our container.
 ENV UDEV=1
 
+EXPOSE 3000
+
 # server.js will run when container starts up on the device
 CMD ["npm", "start"]
