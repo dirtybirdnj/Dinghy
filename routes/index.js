@@ -68,8 +68,6 @@ router.post('/images', (req, res) => {
         localPath: 'abc123',
         event_id: event.id
       }
-
-      console.log(payload);
   
       Image.create(payload).then((newImage) => {
       
