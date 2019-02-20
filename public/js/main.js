@@ -7,13 +7,15 @@ let btnBack = document.getElementById('btnBackHome');
 let btnEndEvent = document.getElementById('btnEndEvent');
 let outputDiv = document.getElementById('output');
 
+let host = 'http://192.168.86.22:3000';
+
 if(btnNewEvent){
 
     btnNewEvent.addEventListener('click', (event) => {
 
         event.preventDefault();
         
-        fetch('http://localhost:3000/events', {
+        fetch(`${host}/events`, {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             mode: "cors", // no-cors, cors, *same-origin
             cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -61,7 +63,7 @@ if(btnEndEvent){
     
     btnEndEvent.addEventListener('click', (event) => {
 
-    fetch('http://localhost:3000/events/end', {
+    fetch(`${host}/events/end`, {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
         mode: "cors", // no-cors, cors, *same-origin
         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -103,7 +105,6 @@ if(btnShutdown){
 
 Mousetrap.bind('tab', () => {
 
-    console.log('WE GOT TAB');
     let activeBtn = document.querySelector('.btn-primary');
     var event = new MouseEvent('click', {
         view: window,
