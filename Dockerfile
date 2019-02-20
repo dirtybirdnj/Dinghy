@@ -20,6 +20,8 @@ RUN JOBS=MAX npm install --production --unsafe-perm && npm cache verify && rm -r
 
 COPY . ./
 
+RUN mkdir images
+
 # Enable udevd so that plugged dynamic hardware devices show up in our container.
 ENV UDEV=1
 
