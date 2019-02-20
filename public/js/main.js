@@ -7,7 +7,7 @@ let btnBack = document.getElementById('btnBackHome');
 let btnEndEvent = document.getElementById('btnEndEvent');
 let outputDiv = document.getElementById('output');
 
-let host = 'http://192.168.86.22:3000';
+let host = 'http://172.19.0.1:3000';
 
 if(btnNewEvent){
 

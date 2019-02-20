@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "DEBUG=express-sequelize node ./bin/www",
-    "crossenv": "cross-env DEBUG=express-sequelize node ./bin/www",    
+    "crossenv": "cross-env DEBUG=express-sequelize node ./bin/www",
     "test": "npm run test-unit && npm run test-integration",
     "test-unit": "cross-env NODE_ENV=test ./node_modules/.bin/mocha test/unit/*.test.js",
     "test-integration": "cross-env NODE_ENV=test ./node_modules/.bin/mocha test/integration/*.test.js",
@@ -20,6 +20,7 @@
     "dotenv": "^6.2.0",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
+    "gphoto2": "^0.3.0",
     "knex": "^0.16.3",
     "knex-migrate": "^1.7.0",
     "morgan": "^1.7.0",
