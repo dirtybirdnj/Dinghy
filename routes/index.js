@@ -65,38 +65,35 @@ router.post('/images', (req, res) => {
       return res.send({status: 'error', message:  'No active event'});
     } else {
 
-
-
       const ts = Date.now();
       
-      let file = `/image-${ts}.jpg`
+      let file = `image-${ts}.jpg`
       let filePath = `./images/${file}`;
       let interval = false;
       
-      
       Camera.findFirst((err, activeCamera) => {
       
-          Camera.takePhoto(activeCamera, filePath, interval, (err, result) => {
-      
+        Camera.takePhoto(activeCamera, filePath, interval, (err, result) => {
+    
+          if(err){
+            res.send({ status: 'error', message: 'Camera.takePhoto err index.js'});
+          } else {
+
             let payload = {
               localPath: file,
               event_id: event.id
             }
         
             Image.create(payload).then((newImage) => {
-            
               res.send({ newImage, file });
-              console.log('photo done, record saved');
-            
-            });   
+            });
 
-              
-      
-          });
+          }
+            
+    
+        });
       
       });      
-
- 
   
     }
 
