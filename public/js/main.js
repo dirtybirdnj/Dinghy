@@ -101,13 +101,8 @@ if(btnNewPhoto){
     return response.json();
     })
     .then(function(newPhoto) {
-    //outputDiv.innerHTML = 'Fetch Response: ' + JSON.stringify(myJson);
-    //window.location.href = '/device/home';
-
         let displayPhoto = document.getElementById('displayPhoto');
         displayPhoto.src = `${host}/${newPhoto.file}`;
-
-
     });
 
     });
