@@ -69,7 +69,8 @@ router.post('/images', (req, res) => {
 
       const ts = Date.now();
       
-      let filePath = `./images/image-${ts}.jpg`;
+      let file = `/image-${ts}.jpg`
+      let filePath = `./images/${file}`;
       let interval = false;
       
       
@@ -78,13 +79,13 @@ router.post('/images', (req, res) => {
           Camera.takePhoto(activeCamera, filePath, interval, (err, result) => {
       
             let payload = {
-              localPath: filePath,
+              localPath: file,
               event_id: event.id
             }
         
             Image.create(payload).then((newImage) => {
             
-              res.send(newImage);
+              res.send({ newImage, file });
               console.log('photo done, record saved');
             
             });   

@@ -5,9 +5,11 @@ let btnResumeEvent = document.getElementById('btnResumeEvent');
 let btnShutdown = document.getElementById('btnShutdown');
 let btnBack = document.getElementById('btnBackHome');
 let btnEndEvent = document.getElementById('btnEndEvent');
+let btnNewPhoto = document.getElementById('btnNewPhoto');
 let outputDiv = document.getElementById('output');
 
-let host = 'http://172.19.0.1:3000';
+//let host = 'http://172.19.0.1:3000';
+let host = 'http://localhost:3000';
 
 if(btnNewEvent){
 
@@ -77,6 +79,35 @@ if(btnEndEvent){
     .then(function(myJson) {
     //outputDiv.innerHTML = 'Fetch Response: ' + JSON.stringify(myJson);
     window.location.href = '/device/home';
+    });
+
+    });
+
+}
+
+if(btnNewPhoto){
+    
+    btnNewPhoto.addEventListener('click', (event) => {
+
+    fetch(`${host}/images`, {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, cors, *same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
+        redirect: "follow", // manual, *follow, error
+        referrer: "no-referrer", // no-referrer, *client
+    })
+    .then(function(response) {
+    return response.json();
+    })
+    .then(function(newPhoto) {
+    //outputDiv.innerHTML = 'Fetch Response: ' + JSON.stringify(myJson);
+    //window.location.href = '/device/home';
+
+        let displayPhoto = document.getElementById('displayPhoto');
+        displayPhoto.src = `${host}/${newPhoto.file}`;
+
+
     });
 
     });
