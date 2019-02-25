@@ -8,8 +8,8 @@ let btnEndEvent = document.getElementById('btnEndEvent');
 let btnNewPhoto = document.getElementById('btnNewPhoto');
 let outputDiv = document.getElementById('output');
 
-let host = 'http://172.19.0.2:3000';
-//let host = 'http://localhost:3000';
+//let host = 'http://172.19.0.2:3000';
+let host = 'http://localhost:3000';
 
 if(btnNewEvent){
 

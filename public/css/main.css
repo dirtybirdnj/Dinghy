@@ -53,3 +53,9 @@ body {
 #displayPhoto {
   width: 100%;
 }
+
+.eventRow {
+  background: #eaeaea;
+  border-radius: 5px;
+  padding: 25px;
+}

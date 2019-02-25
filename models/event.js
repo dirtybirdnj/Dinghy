@@ -17,6 +17,14 @@ module.exports = (sequelize, DataTypes) => {
 
   Event.associate = function (models) {
 
+    models.Event.hasMany(models.Image, 
+        {  
+          foreignKey: {
+            allowNull: false,
+            name: 'event_id'
+          }
+        }
+    );
   };
 
   return Event;

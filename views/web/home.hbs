@@ -1,0 +1,19 @@
+<div class="container">
+<h2>RasphotoD - Events</h2>
+{{#each events}}    
+    <div class="row eventRow">
+        <div class="col-lg-4">
+            <h1 class="float-lg-right">#{{this.id}}</h1>
+        </div>
+        <div class="col-lg-8">
+            
+            <a href="events/{{this.id}}">
+                <p>{{this.createdAt}}</p>
+            </a>
+            <p>{{this.Images.length}} Images</p>
+            
+        </div>
+    </div>
+    
+{{/each}}    
+</div> <!-- /container -->

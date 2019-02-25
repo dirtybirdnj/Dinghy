@@ -1,6 +1,7 @@
 var models  = require('../models');
 var express = require('express');
 var Camera = require('../lib/camera');
+var cmd = require('node-cmd');
 var router  = express.Router();
 var { Event, Image } = models;
 
@@ -9,7 +10,32 @@ router.get('/test', function(req, res) {
 });
 
 router.get('/', function(req, res) {
-  res.redirect('/device/home');
+
+  Event.findAll({
+    include: [
+      { model: Image }
+    ],
+    order: [[ 'id' , 'DESC' ]]
+  }).then(function (events){
+    res.render('web/home', { events });
+  });
+
+});
+
+router.get('/events/:id', function(req, res) {
+
+  Event.findById(req.params.id, {
+    include: [
+      { model: Image }
+    ],
+    order: [[ 'id' , 'DESC' ]]
+  }).then(function (event){
+
+    console.log(event)
+
+    res.render('web/event', { event });
+  });
+
 });
 
 router.get('/device/home', function(req, res) {
@@ -70,30 +96,35 @@ router.post('/images', (req, res) => {
       let file = `image-${ts}.jpg`
       let filePath = `./images/${file}`;
       let interval = false;
-      
-      Camera.findFirst((err, activeCamera) => {
-      
-        Camera.takePhoto(activeCamera, filePath, interval, (err, result) => {
-    
-          if(err){
-            res.send({ status: 'error', message: 'Camera.takePhoto err index.js'});
-          } else {
+      //let activeCamera = res.locals.camera;
 
-            let payload = {
-              localPath: file,
-              event_id: event.id
-            }
-        
-            Image.create(payload).then((newImage) => {
-              res.send({ newImage, file });
-            });
+      let command = `gphoto2 --capture-image-and-download --filename="images/${file}"`;
 
+      //Camera.takePhoto(activeCamera, filePath, interval, (err, result) => {
+      cmd.get(command, function(err, data, stderr){
+
+        if(err){
+          res.send({ status: 'error', message: 'Camera.takePhoto err index.js'});
+        } else {
+
+          let payload = {
+            localPath: file,
+            event_id: event.id
           }
-            
-    
-        });
       
-      });      
+          Image.create(payload).then((newImage) => {
+            res.send({ newImage, file });
+          });
+
+        }
+
+      })
+
+          
+  
+      //});
+      
+ 
   
     }
 
